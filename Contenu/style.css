@@ -1,0 +1,380 @@
+/* Pour pouvoir utiliser une hauteur (height) ou une hauteur minimale
+   (min-height) sur un bloc, il faut que son parent direct ait lui-même une
+   hauteur déterminée (donc toute valeur de height sauf "auto": hauteur en
+   pixels, em, autres unités...).
+   Si la hauteur du parent est en pourcentage, elle se réfère alors à la
+   hauteur du «grand-père», et ainsi de suite.
+   Pour pouvoir utiliser un "min-height: 100%" sur div#global, il nous faut:
+   - un parent (body) en "height: 100%";
+   - le parent de body également en "height: 100%". */
+
+
+/* FONT */
+body {
+    /*font-family: 'Shadows Into Light', cursive;*/
+    font-family: 'Indie Flower', cursive;
+}
+
+article p{
+   /* font-family: 'Indie Flower', cursive;*/
+}
+
+header{
+    /*font-family: 'Shadows Into Light', cursive;*/
+    font-family: 'Indie Flower', cursive;
+}
+table{
+    /*font-family: 'Shadows Into Light', cursive;*/
+    font-family: arial;
+    color:black;
+}
+
+html, body {
+    height: 100%;
+    /*font-family: 'Shadows Into Light', cursive;*/
+}
+
+body {
+    color: #bfbfbf;
+    background-color: #6d695c;
+    background-image:
+        repeating-linear-gradient(120deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+        repeating-linear-gradient(60deg, rgba(255,255,255,.1), rgba(255,255,255,.1) 1px, transparent 1px, transparent 60px),
+        linear-gradient(60deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1)),
+        linear-gradient(120deg, rgba(0,0,0,.1) 25%, transparent 25%, transparent 75%, rgba(0,0,0,.1) 75%, rgba(0,0,0,.1));
+    background-size: 70px 120px;
+}
+
+article p{
+    color: rgb(111, 111, 111);
+    font-size: 16px;
+}
+
+h1,h2,h3,h4 {
+    color: rgb(126, 126, 126);
+}
+
+#englobTitre, #englobAdmin {
+    width: 100%;
+    height: auto;
+}
+#englobTitre {
+    transition:All 1.0548s ease;
+    -webkit-transition:All 1.0548s ease;
+    -moz-transition:All 1.0548s ease;
+    -o-transition:All 1.0548s ease;
+    transform: rotate(-1deg) scale(1) skew(1deg) translate(10px);
+    -webkit-transform: rotate(-1deg) scale(1) skew(1deg) translate(10px);
+    -moz-transform: rotate(-1deg) scale(1) skew(1deg) translate(10px);
+    -o-transform: rotate(-1deg) scale(1) skew(1deg) translate(10px);
+    -ms-transform: rotate(-1deg) scale(1) skew(1deg) translate(10px);
+}
+#englobTitre:hover{
+    transform: rotate(1.5deg) scale(1.019) skew(0deg) translate(1px);
+    -webkit-transform: rotate(1.5deg) scale(1.019) skew(0deg) translate(1px);
+    -moz-transform: rotate(1.5deg) scale(1.019) skew(0deg) translate(1px);
+    -o-transform: rotate(1.5deg) scale(1.019) skew(0deg) translate(1px);
+    -ms-transform: rotate(1.5deg) scale(1.019) skew(0deg) translate(1px);
+}
+
+#gphp{
+    /*width: 400px;*/
+    margin: 15px auto;
+    background-color: rgba(255, 255, 255, 1) !important;
+    float: none;
+}
+
+.titreBillet {
+    margin-bottom : 0px;
+}
+#wrap {
+    width: 70%;
+    height: 100%;
+    margin: 10px auto;
+ 
+}
+
+#global {
+    width: 100%;
+    min-height: 50%;  /* Voir commentaire sur html et body plus haut */
+    text-align: justify;
+    padding: 5px 30px;
+    margin: 20px 0 15px 0;
+    background: #EAEAEA;
+ }
+
+.commentaires{   
+     background: rgba(234, 234, 234, 0.37);
+}
+
+#contenu {
+    margin: 0 20px 30px 20px;
+}
+
+#titreBlog, #piedBlog {
+    text-align: center;
+    color: rgb(182, 182, 182);
+    text-decoration: none;
+
+}
+
+#titreBlog {
+    color: rgb(126, 126, 126);
+    font-size: 50px;
+    text-shadow: rgb(176, 176, 176) 0px 0px 2px;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+a {
+    text-decoration: none;
+}
+a:link 
+{ 
+ text-decoration:none; 
+} 
+
+#titreReponses {
+    font-size : 100%;
+}
+
+#txtCommentaire {
+    width: 50%;
+}
+
+article {
+    background-color: rgba(255, 253, 106, 0.45) !important;
+    color: rgb(182, 182, 182);
+    padding: 16px 50px;
+    margin: 15px 0;
+    width: 98%;
+}
+
+
+.listeCommentaires{
+    padding: 6px 50px;
+}
+
+.commentaire{
+    background: #EAEAEA !important;
+    padding: 6px 50px;
+    margin: 15px 0;
+    
+    /*
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    
+        
+    transform: rotate(1deg);
+    -webkit-transform: rotate(1deg);
+    -moz-transform: rotate(1deg);
+    -o-transform: rotate(1deg);
+    -ms-transform: rotate(1deg);*/
+}
+
+/*
+.commentaire:hover{
+    z-index:10;
+    
+    transition:All 0.5s ease;
+    -webkit-transition:All 0.5s ease;
+    -moz-transition:All 0.5s ease;
+    -o-transition:All 0.5s ease;
+    
+    transform: rotate(180deg) scale(1.5) skew(0deg) translate(1px);
+    -webkit-transform: rotate(360deg) scale(1.5) skew(0deg) translate(1px);
+    -moz-transform: rotate(180deg) scale(1.5) skew(0deg) translate(1px);
+    -o-transform: rotate(180deg) scale(1.5) skew(0deg) translate(1px);
+    -ms-transform: rotate(180deg) scale(1.5) skew(0deg) translate(1px);
+    
+    -webkit-transform: rotate(360deg);
+    
+}*/
+
+
+.commentaire.curved:before{
+    box-shadow:none;
+}
+
+
+
+header p{
+    margin-bottom: 10px;
+}
+
+.nomCommentaire{
+    color:rgb(126, 126, 126);
+}
+
+
+/**************************
+    effet feuille génral
+***************************/
+.drop-shadow {
+position: relative;
+/*float: left;*/
+/*width: 40%;*/
+padding: 2em;
+margin: 1em 10px 2em;background: #fff;
+-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+
+.curved-hz-1:before {
+top: 50%;
+bottom: 0;
+left: 10px;
+right: 10px;
+-moz-border-radius: 100px / 10px;
+border-radius: 100px / 10px;
+}
+
+.curved:before {
+top: 10px;
+bottom: 10px;
+left: 0;
+right: 50%;
+-webkit-box-shadow: 0 0 15px rgba(0,0,0,0.6);
+-moz-box-shadow: 0 0 15px rgba(0,0,0,0.6);
+box-shadow: 0 0 15px rgba(0,0,0,0.6);
+-moz-border-radius: 10px / 100px;
+border-radius: 10px / 100px;
+}
+.drop-shadow:before, .drop-shadow:after {
+content: "";
+position: absolute;
+z-index: -2;
+}
+
+.drop-shadow:before, .drop-shadow:after {
+content: "";
+position: absolute;
+z-index: -2;
+}
+/*--------------------------------------*/
+
+
+.mce-tinymce {
+    float: left !important;
+}
+
+#auteur{
+    margin-bottom: 10px;
+}
+
+/** Vue Admin **************************************************/
+
+body.Admin{
+    background-color: #861616;
+}
+.admin{
+    margin: 15px auto;
+    float: none;
+}
+
+.btn-admin{
+    transition:All 0.3s ease;
+    -webkit-transition:All 0.3s ease;
+    -moz-transition:All 0.3s ease;
+    -o-transition:All 0.3s ease;
+}
+.btn-admin h4{
+    text-align:center;
+    
+}
+
+.btn-admin:hover{
+    background-color: rgba(255, 0, 0, 0.2) !important;
+}
+.btn-admin:hover h4{
+    color:white;
+}
+
+.deco{
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+    color:black;
+    padding: 10px !important;
+}
+.deco a {color:black;}
+.none{display:none;}
+
+.listeTitreArticle{
+    background-color: rgba(255, 253, 106, 0.45);
+}
+.jaune{background-color: rgba(255, 253, 106, 0.45);}
+.listeTitreArticle .titreBillet{
+    margin-top: 0;
+}
+.txtAjoutArticle{
+    font-size:18px;
+    color:rgb(126, 126, 126);
+    
+}
+/*--------------------------------------------------------*/
+
+
+
+
+/* FLIP ************************************************************/
+/* entire container, keeps perspective */
+.flip-container {
+	perspective: 1000;
+}
+/* flip the pane when hovered */
+.flip-container:hover .flipper, .flip-container.hover .flipper {
+        transform: rotateY(180deg);
+}
+
+.flip-container, .front, .back {
+	width: 320px;
+	min-height: 100px;
+}
+
+/* flip speed goes here */
+.flipper {
+	transition: 1s;
+	transform-style: preserve-3d;
+	position: relative;
+}
+
+/* hide back of pane during swap */
+.front, .back {
+	backface-visibility: hidden;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+	/* for firefox 31 */
+	transform: rotateY(0deg);
+        /*background-color:white;*/
+}
+
+/* back, initially hidden pane */
+.back {
+	transform: rotateY(180deg);
+        /*background-color:black;*/
+}
+/*--------------------------------------------------------*/
+
+
+form{
+    min-height: 330px;
+}
+form.row{
+    margin-left: 26px;
+}
+.ajoutComm, .ajoutComm h3{
+    margin-left: 26px;
+}
+.ajoutComm{
+    margin-top :26px;
+}
