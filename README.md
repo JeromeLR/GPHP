@@ -1,4 +1,8 @@
-# [MonBlog](http://github.com/bpesquet/MonBlog)
+# [GPhp](https://github.com/JeromeLR/GPHP)
+
+Modification d'un micro Blog autour d'un framework PHP MVC minimaliste 
+
+## [MonBlog](http://github.com/bpesquet/MonBlog)
 
 Support de l'article [Evoluer vers une architecture MVC en PHP] (http://bpesquet.developpez.com/tutoriels/php/evoluer-architecture-mvc/)
 
