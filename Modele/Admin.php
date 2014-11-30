@@ -7,7 +7,7 @@ require_once 'Framework/Modele.php';
  * 
  * @author Baptiste Pesquet
  */
-class AdminG extends Modele {
+class Admin extends Modele {
 
     /** Renvoie la liste des billets du blog
      * 
@@ -27,7 +27,7 @@ class AdminG extends Modele {
      * @return array Le billet
      * @throws Exception Si l'identifiant du billet est inconnu
      */
-    public function getBillet($idBillet) {
+    public function getArticle($idBillet) {
         $sql = 'select BIL_ID as id, BIL_DATE as date,'
                 . ' BIL_TITRE as titre, BIL_CONTENU as contenu from T_BILLET'
                 . ' where BIL_ID=?';
@@ -38,11 +38,32 @@ class AdminG extends Modele {
             throw new Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");
     }
     
-    public function modifierBillet( $contenu, $idBillet) {
+    public function MajArticle( $titreArticle, $contenu, $idBillet) {
       
-        $sql = 'update T_BILLET set BIL_CONTENU=? where BIL_ID=?';
+        $sql = 'update T_BILLET set BIL_TITRE=?, BIL_CONTENU=? where BIL_ID=?';
         
-        $this->executerRequete($sql, array( $contenu, $idBillet));
+        $this->executerRequete($sql, array( $titreArticle, $contenu, $idBillet));
+    }
+    
+    public function delArticle( $idBillet) {
+      
+        $sql = 'delete from T_BILLET where BIL_ID=?';
+        
+        $this->executerRequete($sql, array( $idBillet));
+    }
+    
+     /**
+     * Mise à jour du contenu d'un article
+     */
+     public function addArticle( $titre  ) {
+      
+         
+        $sql = 'insert into T_BILLET( BIL_DATE, BIL_TITRE)'
+            . ' values(?, ?)';
+        $date = date(DATE_W3C);
+        
+        $this->executerRequete($sql, array( $date, $titre));
+         
     }
 
 }
