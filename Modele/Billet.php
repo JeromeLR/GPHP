@@ -38,13 +38,6 @@ class Billet extends Modele {
             throw new Exception("Aucun billet ne correspond à l'identifiant '$idBillet'");
     }
     
-    public function modifierBillet( $contenu, $idBillet) {
-      
-        $sql = 'update T_BILLET set BIL_CONTENU=? where BIL_ID=?';
-        
-        $this->executerRequete($sql, array( $contenu, $idBillet));
-    }
-    
      /**
      * Renvoie le nombre total de billets
      * 
@@ -56,6 +49,30 @@ class Billet extends Modele {
         $resultat = $this->executerRequete($sql);
         $ligne = $resultat->fetch();  // Le résultat comporte toujours 1 ligne
         return $ligne['nbBillets'];
+    }
+    
+    /**
+     * Mise à jour du contenu d'un article
+     */
+     public function modifierBillet( $contenu, $idBillet) {
+      
+        $sql = 'update T_BILLET set BIL_CONTENU=? where BIL_ID=?';
+        
+        $this->executerRequete($sql, array( $contenu, $idBillet));
+    }
+    
+    /**
+     * Mise à jour du contenu d'un article
+     */
+     public function ajouterBillet( $titre  ) {
+      
+         
+        $sql = 'insert into T_BILLET( BIL_DATE, BIL_TITRE)'
+            . ' values(?, ?)';
+        $date = date(DATE_W3C);
+        
+        $this->executerRequete($sql, array( $date, $titre));
+         
     }
 
 }
