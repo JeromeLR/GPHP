@@ -6,18 +6,28 @@
         <time><?= $this->nettoyer($billet['date']) ?></time>
     </header>
     <p><?= $this->nettoyer($billet['contenu']) ?></p>
+    </br>
     
-     <form method="post" action="billet/modifier">
-        
-            <textarea id="txtContenu" name="contenu" rows="10" required>
-                    <?= $this->nettoyer($billet['contenu']) ?>
-            </textarea>
+     <form method="post" action="admin/majArticle">
+         
+            <div>
+                Titre
+                <input id="titre" name="titre" value="<?= $billet['titre'] ?>" />
+                </br>
+            </div>
+         
+            <div>
+                <textarea id="txtContenu" class="mce" name="contenu" rows="10" required>
+                        <?= $this->nettoyer($billet['contenu']) ?>
+                </textarea>
+                
+            </div>
 
-            <br />
+            <div>
+                <input type="hidden" name="id" value="<?= $billet['id'] ?>" />
 
-            <input type="hidden" name="id" value="<?= $billet['id'] ?>" />
-
-            <input onclick="recup_tinyMCE_contenu()" type="submit" value="modifier" />
+                <input class="okbtn" onclick="recup_tinyMCE_contenu()" type="submit" value="Ok" />
+           </div>
 
         </form>
 
