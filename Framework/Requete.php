@@ -60,7 +60,9 @@ class Requete
             return $this->parametres[$nom];
         }
         else {
+            var_dump($this);
             throw new Exception("Paramètre '$nom' absent de la requête");
+            
         }
     }
 
