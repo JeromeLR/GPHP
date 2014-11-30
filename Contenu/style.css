@@ -8,7 +8,6 @@
    - un parent (body) en "height: 100%";
    - le parent de body également en "height: 100%". */
 
-
 /* FONT */
 body {
     /*font-family: 'Shadows Into Light', cursive;*/
@@ -23,6 +22,21 @@ header{
     /*font-family: 'Shadows Into Light', cursive;*/
     font-family: 'Indie Flower', cursive;
 }
+
+.txtNoir{
+    color:black;
+}
+
+.txtGris{
+    color:rgb(126, 126, 126);
+}
+
+.txtGris2{
+    color:rgb(95, 95, 95);
+}
+.gauche{float:left;}
+.droite{float:right;}
+
 table{
     /*font-family: 'Shadows Into Light', cursive;*/
     font-family: arial;
@@ -270,6 +284,10 @@ z-index: -2;
 body.Admin{
     background-color: #861616;
 }
+
+body #global {
+    background: rgba(234, 234, 234, 0.82);
+    }
 .admin{
     margin: 15px auto;
     float: none;
@@ -303,13 +321,13 @@ body.Admin{
 .deco a {color:black;}
 .none{display:none;}
 
-.listeTitreArticle{
-    background-color: rgba(255, 253, 106, 0.45);
-}
+
 .jaune{background-color: rgba(255, 253, 106, 0.45);}
-.listeTitreArticle .titreBillet{
-    margin-top: 0;
-}
+
+.blanc{background-color: rgba(255, 255, 255, 0.45);}
+
+.rouge{background-color:rgba(255, 0, 0, 0.2);}
+
 .txtAjoutArticle{
     font-size:18px;
     color:rgb(126, 126, 126);
@@ -370,11 +388,59 @@ form{
     min-height: 330px;
 }
 form.row{
-    margin-left: 26px;
 }
 .ajoutComm, .ajoutComm h3{
     margin-left: 26px;
 }
 .ajoutComm{
     margin-top :26px;
+}
+
+form.ajoutArticle{
+    min-height: 50px;
+}
+
+/*
+.titreArticle {
+    margin-bottom:4px;
+    border-bottom: dotted 1px rgb(126, 126, 126);
+}
+*/
+.titreArticle a{
+    padding-right: 5px;
+}
+
+
+.nomArticle{
+    font-size: 18px;
+}
+
+.okbtn {
+    margin: 20px 0 0 10px;
+    width: 100px;
+    height: 37px;
+    color:black;
+}
+
+.btn-ajouter{
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.titreArticleInner {
+    height: 40px;
+    padding-left: 28px;
+    padding-top: 10px;
+}
+
+#titre{
+    background-color: rgba(255, 255, 255, 0.31);
+}
+
+#selectArticle{
+    min-height:20px;
+}
+
+.titreArticle, .articleRetourAjax2 {
+    cursor: pointer;
 }
