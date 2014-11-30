@@ -3,6 +3,8 @@
 require_once 'Framework/Controleur.php';
 require_once 'Modele/Billet.php';
 require_once 'Modele/Commentaire.php';
+
+require_once 'Controleur/ControleurAdmin.php';
 /**
  * Contrôleur des actions liées aux billets
  *
@@ -30,10 +32,28 @@ class ControleurBillet extends Controleur {
         $commentaires = $this->commentaire->getCommentaires($idBillet);
         
         $this->genererVue(
-                array(
-                    'billet' => $billet, 
-                    'commentaires' => $commentaires
-                ));
+            array(
+                'billet' => $billet, 
+                'commentaires' => $commentaires
+            ));
+    }
+    
+      public function admin() {
+        
+        $nbBillets = $this->billet->getNombreBillets();
+        
+        $nbCommentaires = $this->commentaire->getNombreCommentaires();
+        
+        $billets = $this->billet->getBillets();
+        
+        $login = $this->requete->getSession()->getAttribut("login");
+        
+        $this->genererVue(array(
+            'billets' => $billets,
+            'nbBillets' => $nbBillets, 
+            'nbCommentaires' => $nbCommentaires, 
+            'login' => $login)
+         );
     }
 
     // Ajoute un commentaire sur un billet
@@ -62,6 +82,20 @@ class ControleurBillet extends Controleur {
         $this->billet->modifierBillet( $contenu, $idBillet);
         
         // Exécution de l'action par défaut pour réafficher la liste des billets
+        //$this->executerAction("index");
+        $this->executerAction("admin");
+    }
+    
+     public function ajouter() {
+        
+         
+        $titre = $this->requete->getParametre("titre");
+        
+        $this->billet->ajouterBillet($titre);
+        
+        // Exécution de l'action par défaut pour réafficher la liste des billets
+        //$this->executerAction("Admin/index");
+        //var_dump($this);
         $this->executerAction("index");
     }
 }
