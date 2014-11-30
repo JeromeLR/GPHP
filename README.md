@@ -1,8 +1,18 @@
 # [GPhp](https://github.com/JeromeLR/GPHP)
 
-Modification d'un micro Blog autour d'un framework PHP MVC minimaliste 
+Modification d'un micro Blog autour d'un framework PHP MVC minimaliste
 
-## [MonBlog](http://github.com/bpesquet/MonBlog)
+Partie Admin : Gestion des articles
+
+Affichage liste articles avec récupération des contenus par appels ajax
+
+Evolutions futures possibles :
+ * Gestion de catégories
+ * Intégration gallerie d'images
+ * Template de pages (drag & drop ?)...
+
+
+## MonBlog
 
 Support de l'article [Evoluer vers une architecture MVC en PHP] (http://bpesquet.developpez.com/tutoriels/php/evoluer-architecture-mvc/)
 
