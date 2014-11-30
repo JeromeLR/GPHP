@@ -1,6 +1,7 @@
 <?php
 
 require_once 'ControleurSecurise.php';
+require_once 'Modele/Admin.php';
 require_once 'Modele/Billet.php';
 require_once 'Modele/Commentaire.php';
 
@@ -13,6 +14,7 @@ class ControleurAdmin extends ControleurSecurise
 {
     private $billet;
     private $commentaire;
+    private $admin;
 
     /**
      * Constructeur 
@@ -21,8 +23,13 @@ class ControleurAdmin extends ControleurSecurise
     {
         $this->billet = new Billet();
         $this->commentaire = new Commentaire();
+        
+        $this->admin = new Admin();
     }
 
+    /**
+     * page principale Admin 
+     */
     public function index()
     {
         $nbBillets = $this->billet->getNombreBillets();
@@ -40,18 +47,65 @@ class ControleurAdmin extends ControleurSecurise
          );
     }
    
-     // Affiche les détails sur un billet
+    /**
+     * Page de mofdification de l'Article selectionné
+     */
     public function modifierArticle() {
         
-        $idBillet = $this->requete->getParametre("id");
+        $idArticle = $this->requete->getParametre("id");
         
-        $billet = $this->billet->getBillet($idBillet);
-        //$commentaires = $this->commentaire->getCommentaires($idBillet);
+        $article = $this->admin->getArticle($idArticle);
         
         $this->genererVue(
                 array(
-                    'billet' => $billet
-                ));
+                    'billet' => $article
+        ));
+        
+    }
+    
+     /**
+     * Article : Enregistrement du nouveau contenu
+     */
+     public function majArticle() {
+        
+        $idBillet = $this->requete->getParametre("id");
+        
+        $nomArticle = $this->requete->getParametre("titre");
+        
+        $contenu = $this->requete->getParametre("contenu");
+        
+        $this->admin->MajArticle( $nomArticle, $contenu, $idBillet);
+        
+        // Exécution de l'action par défaut pour réafficher la liste des billets
+        $this->executerAction("index");
+    }
+    
+     /**
+     * Article : Supprimer
+     */
+     public function SupprimerArticle() {
+        
+        $idArticle = $this->requete->getParametre("id");
+        
+        $this->admin->delArticle( $idArticle);
+        
+        // Exécution de l'action par défaut pour réafficher la liste des billets
+        $this->executerAction("index");
+    }
+    
+
+    
+    public function ajouterArticle() {
+        
+         
+        $titre = $this->requete->getParametre("titre");
+        
+        $this->admin->addArticle($titre);
+        
+        // Exécution de l'action par défaut pour réafficher la liste des billets
+        //$this->executerAction("Admin/index");
+        //var_dump($this);
+        $this->executerAction("index");
     }
 
 }
